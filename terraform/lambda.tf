@@ -44,7 +44,7 @@ resource "aws_lambda_function" "es_cleanup" {
   # When these lists are empty it will deploy the lambda without VPC support.
   vpc_config {
     subnet_ids         = var.subnet_ids
-    security_group_ids = ["${compact(concat(local.sg_ids, var.security_group_ids))}"]
+    security_group_ids = compact(concat(local.sg_ids, var.security_group_ids))
   }
 }
 

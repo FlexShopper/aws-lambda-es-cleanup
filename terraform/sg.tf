@@ -33,9 +33,9 @@ resource "aws_security_group" "lambda" {
   }
 
 
-  tags = "${merge(
+  tags = merge(
             var.tags,
             map("Scope", "${var.prefix}lambda_function_to_elasticsearch${var.suffix}"),
-            )}"
+            )
 
 }
